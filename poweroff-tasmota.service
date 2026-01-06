@@ -1,0 +1,13 @@
+[Unit]
+Description=Cut power
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+#ExecStop=/usr/bin/curl -v "http://192.168.2.254/cm?cmnd=Backlog%%20Delay%%2040%%3BPower1%%20off"
+ExecStop=/usr/bin/curl -v "http://192.168.2.254/cm?user=admin&password=pafcio997&cmnd=Power%20Toggle"
+
+[Install]
+WantedBy=multi-user.target
